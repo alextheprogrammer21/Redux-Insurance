@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Insurance.module.css';
+import { createStore, combineReducers } from 'redux'; 
+import { findAllByAltText } from '@testing-library/react';
 
 export function Insurance() {
   const dispatch = useDispatch();
@@ -8,7 +10,14 @@ export function Insurance() {
   const [oldListOfClaims, setOldListOfClaims] = useState([]);
   const [listOfPolicies, setListOfPolicies] = useState([]);
 
+//   React.useEffect(() => {
+//       setListOfPolicies(['Test']);
+//       setOldListOfClaims(['Test']);
+//   }, [])
+
   const createClaim = (name, CollectionAmount) => {
+    setBagOfMoney(bagOfMoney-50)
+    setOldListOfClaims([...oldListOfClaims, 'Alex: 50 '])
     return {
         //The form
         type: 'CREATE_CLAIM', 
@@ -20,8 +29,10 @@ export function Insurance() {
 };
 
 const createPolicy = (name) => {
-    console.log("TEST")
+    console.log("heres the bag of money. SHould increase by 20", bagOfMoney)
 
+    setBagOfMoney(bagOfMoney+20)
+    setListOfPolicies([...listOfPolicies, 'Alex, '])
     return {
         type: 'CREATE_POLICY',
         payload: {
@@ -32,6 +43,9 @@ const createPolicy = (name) => {
 };
 
 const deletePolicy = (name) => {
+    setListOfPolicies(    listOfPolicies.filter(policy => policy != 'Alex, ')
+    )
+
     return {
         type: 'DELETE_POLICY',
         payload: {
@@ -68,7 +82,9 @@ const deletePolicy = (name) => {
         </button> 
         </div>
 
-        <div className={styles.value}>INSERT VALUE</div>
+        <div className={styles.value}>{bagOfMoney}</div>
+        <div className={styles.value}>{oldListOfClaims}</div>
+        <div className={styles.value}>{listOfPolicies}</div>
 
     </div>
   );
