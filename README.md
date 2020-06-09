@@ -1,1 +1,1 @@
-This insurance company application is a lesson on how Redux works by RallyCoding.
+This insurance company application is a lesson on how Redux works by RallyCoding. Modified by me to learn React-Redux
