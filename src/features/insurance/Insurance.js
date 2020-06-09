@@ -4,7 +4,9 @@ import styles from './Insurance.module.css';
 
 export function Insurance() {
   const dispatch = useDispatch();
-  const [incrementAmount, setIncrementAmount] = useState('2');
+  const [bagOfMoney, setBagOfMoney] = useState(1000);
+  const [oldListOfClaims, setOldListOfClaims] = useState([]);
+  const [listOfPolicies, setListOfPolicies] = useState([]);
 
   const createClaim = (name, CollectionAmount) => {
     return {
@@ -48,7 +50,7 @@ const deletePolicy = (name) => {
         >
           Create Claim
         </button>
-        
+
         <button 
           className={styles.button}
           aria-label="Create Policy"
