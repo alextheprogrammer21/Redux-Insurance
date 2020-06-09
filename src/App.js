@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import { Insurance } from './features/insurance/Insurance'
 import './App.css';
 
 function App() {
@@ -8,9 +9,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
+        <Insurance />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Simple Insurance Company to learn Redux
         </p>
         <span>
           <span>Learn </span>
